@@ -440,4 +440,9 @@ def create_upsampled_wetlands_map(metric, change, tgt_type, no_data_value, high_
     ds = np_array_to_raster(output_path_orig, wetlands_arr == tgt_val, ds_wetlands.GetGeoTransform())
     ds = None
     
+    #save the diff of the source arr
+    if change:
+        ds = np_array_to_raster('assets/%s_diff.tiff'%metric, source_arr, ds_source.GetGeoTransform())
+        ds = None
+    
     
