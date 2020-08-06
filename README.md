@@ -18,6 +18,8 @@ Set the BASELINE_WETLAND_PATH to the path where you have stored this file locall
 
 4. Run the driver code and wait for all Google Earth Engine tasks to complete.
 
+**Expected Output**: files stored on Google Drive with the datasets and bands specified
+
 ## (2) CacheTrainingData.ipynb
 
 1. Set the BASE_ROI_FOLDER. Should be same as "regions_folder" in the last notebook
@@ -28,16 +30,22 @@ Set the BASELINE_WETLAND_PATH to the path where you have stored this file locall
 
 4. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT".
 
+**Expected Output**: a file in the working directory called "stored_training_data.p" containing the training data for all sub-regions
+
 ## (3) WetlandPrediction.ipynb
 
 1. Set the BASE_ROI_FOLDER. Should be same as "regions_folder" in the first notebook
 
 2. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT". Should be same choice as in last notebook.
 
+**Expected Output**: rasters in each sub-region directory starting with "predicted..." which contain the wetland sub-type predictions within that sub-region
+
 ## (4) PostProcessing.ipynb
 
 1. Set the BASE_ROI_FOLDER. Should be same as "regions_folder" in the first notebook
 
 2. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT". Should be same choice used in last and second to last notebooks. 
+
+**Expected Output**: rasters in each sub-region directory starting with "new_baseline..." which contain the updated baseline map for that sub-region.
 
 
