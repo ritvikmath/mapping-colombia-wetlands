@@ -34,19 +34,13 @@ Set the ***BASELINE_WETLAND_PATH*** to the path where you have stored this file 
 
 ## (3) WetlandPrediction.ipynb
 
-2. Fill in the sub-type of wetland you wish to predict under ***CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT***. Should be same choice as in last notebook.
-
-3. Run the drive code and wait for it to complete.
+1. Run the drive code and wait for it to complete.
 
 **Expected Output**: rasters in each sub-region directory starting with "predicted..." which contain the wetland sub-type predictions within that sub-region
 
 ## (4) PostProcessing.ipynb
 
-1. Set the ***BASE_ROI_FOLDER***. Should be same as ***regions_folder*** in the first notebook
-
-2. Fill in the sub-type of wetland you wish to predict under ***CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT***. Should be same choice used in last and second to last notebooks. 
-
-3. Run the drive code and wait for it to complete.
+1. Run the drive code and wait for it to complete.
 
 **Expected Output**: rasters in each sub-region directory starting with "new_baseline..." which contain the updated baseline map for that sub-region.
 
