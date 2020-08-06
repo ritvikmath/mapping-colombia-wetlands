@@ -1,0 +1,5 @@
+*.p
+*.pickle
+*.json
+test
+rescaled*

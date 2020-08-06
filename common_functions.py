@@ -3,6 +3,8 @@ import numpy as np
 from scipy.signal import convolve
 import os
 
+### CONSTANTS ###
+
 NO_DATA_VALUE = 65535
 
 feature_to_code = {'None': 0, 
@@ -17,10 +19,18 @@ feature_to_code = {'None': 0,
                    'Wetland in dry areas': 90, 
                    'Wet meadow': 100}
 
+### FUNCTIONS ###
+
 def get_scale(fine_res_ds, coarse_res_ds, reshape_ds=False):
     """
-    fine_res_ds: the finer resoultion GDAL dataset
-    coarse_res_ds: the coaser resoultion GDAL dataset
+    This function accepts gdal datasets of the same geographic region but with different resolutions.
+    For example, fine_res_ds might be a Sentinel-2 raster at 10m and coarse_res_ds might be the baseline wetland raster at 120m.
+    The function first calculates the scale between the datasets (here is is 120m / 10m = 12).
+    It then saves each raster to dimensions which are perfect factors of the scale so that the numpy functions
+    that come later will have no issues with incompatible scales.
+    
+    fine_res_ds: the fine resoultion GDAL dataset
+    coarse_res_ds: the coarse resoultion GDAL dataset
     reshape_ds: True if we wish to save files with datasets of divisible proportions
     """
     
@@ -71,6 +81,12 @@ def split(arr, nrows, ncols):
 
 def preprocess_data_set_pair(ds_features, ds_labels, wetland_type):
     """
+    This function accepts a dataset of features (such as Sentinel-2/ALOS etc) and a dataset of labels (the baseline wetland).
+    It also accepts a specific type of wetland (like Marsh, Mangrove, etc.).
+    It proceeds by reshaping the two datasets so that their dimensions are compatible for the matrix analyses that come later.
+    It converts the baseline wetlands array into one which is 1 for the specific type of wetland in question and 0 otherwise.
+    It also reshapes the dataset of features into a 2d array of small data cubes.
+    
     ds_train: the training dataset 
     ds_test: the testing dataset
     wetland_type: the sub-type of wetland such as "Mangrove" or "Marsh"
@@ -162,7 +178,10 @@ def np_array_to_raster(output_path, arr, geotransform, no_data=None, nband=1, gd
 
 def apply_convolution(img, kernel):
     """
-    convolve the given image with the given kernel, maintaining the original image dimensions|
+    convolve the given image with the given kernel, maintaining the original image dimensions
+    
+    img: the image to convolve
+    kernel: the kernel to use for convolution
     """
     
     #convolve blur kernel with image
@@ -172,6 +191,10 @@ def apply_convolution(img, kernel):
 
 def sample_by_vicinity_scores(pairs, vicinity_scores, thresh):
     """
+    This function samples a set of pixels by a given array called vicinity scores. The smaller the vicinity score, the more likely
+    a pixel will be selected. This is so that we oversample very confidently wetland 
+    and confidently NON wetland pixels when making our training set.
+    
     pairs: a double of xcoords and ycoords 
     vicinity_scores: scores between 0 and thresh, where lower means more confident
     thresh: the upper bound for the vicinity scores
@@ -188,6 +211,8 @@ def sample_by_vicinity_scores(pairs, vicinity_scores, thresh):
 
 def standardize_data(arr, means, devs, num_sd_trim):
     """
+    This data simply takes a 2d array, column means, and column deviations and gets truncated standardized scores
+    
     arr: input array (N samples x k features)
     means: the column means to use in normalization
     devs: the column deviations to use in normalization
@@ -202,6 +227,14 @@ def standardize_data(arr, means, devs, num_sd_trim):
 
 def get_approx_densities(arr, approx_vals, num_sd_trim=2.5, bins=10):
     """
+    This function accepts a 2d array of training data with N samples and k features
+    and a 2d array of testing  with M samples and k features
+    It creates a k-dimensional histogram using the training data and then
+    uses that histogram to figure out the probability density for each sample in the testing data.
+    This is the heart of the prediction as it tells us the likelihood of observing a certain vector 
+    of values from the distribution of the training data. If this likelihood is high, we have more evidence
+    to suggest that that vector of values comes from this training distribution versus another one.
+    
     arr: input array (N samples x k features)
     approx_vals: the values whose densities to approximate  (M samples x k features)
     """
