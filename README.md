@@ -6,7 +6,7 @@
 
 ## (1) DataDownload.ipynb
 
-1. Download the baseline wetlands map of colombia at the Google Drive link:
+1. Download the baseline wetlands map of Colombia at the Google Drive link:
 
 https://drive.google.com/file/d/1GHmrHCjlvCJecxAGdkp8MG02i6aptyft/view?usp=sharing
 
