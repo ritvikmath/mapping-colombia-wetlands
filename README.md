@@ -18,7 +18,7 @@ Set the ***BASELINE_WETLAND_PATH*** to the path where you have stored this file 
 
 4. Run the driver code and wait for all Google Earth Engine tasks to complete. Make sure that the folder containing the data on Google Drive is public.
 
-**Expected Output**: files stored on Google Drive with the datasets and bands specified
+**Expected Output**: rasters stored on Google Drive with the datasets and bands specified
 
 ## (2) CacheTrainingData.ipynb
 
