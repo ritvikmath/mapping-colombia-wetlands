@@ -6,7 +6,7 @@ Purpose: Build models to predict wetland areas in Colombia
 
 ## (1) DataDownload.ipynb
 
-1. Download the baseline wetlands map of colombia at the google drive link:
+1. Download the baseline wetlands map of colombia at the Google Drive link:
 
 https://drive.google.com/file/d/1GHmrHCjlvCJecxAGdkp8MG02i6aptyft/view?usp=sharing
 
@@ -27,5 +27,17 @@ Set the BASELINE_WETLAND_PATH to the path where you have stored this file locall
 3. Follow the steps under the header "Folder Name to File ID" to automatically get the Google Drive file ids of all files downloaded in the last notebook. You can also manually populate the dictionary "folder_name_to_file_id" with pairs like "folder_name: file_id" but might be tedious if many folders
 
 4. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT".
+
+## (3) WetlandPrediction.ipynb
+
+1. Set the BASE_ROI_FOLDER. Should be same as "regions_folder" in the first notebook
+
+2. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT". Should be same choice as in last notebook.
+
+## (4) PostProcessing.ipynb
+
+1. Set the BASE_ROI_FOLDER. Should be same as "regions_folder" in the first notebook
+
+2. Fill in the sub-type of wetland you wish to predict under "CHOOSE THE WETLAND SUB-TYPE YOU WOULD LIKE TO PREDICT". Should be same choice used in last and second to last notebooks. 
 
 
