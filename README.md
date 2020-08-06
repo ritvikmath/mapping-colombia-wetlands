@@ -1,25 +1,19 @@
 # Mapping the wetland regions of Colombia
 
-Purpose: Build models to correct the baseline wetland maps of Colombia
+Purpose: Build models to predict wetland areas in Colombia
 
-# How to use
+# Steps to Use
 
-## Order of notebooks
+## (1) DataDownload
 
-Data Download -> Cache Training Data -> Machine Learning -> Post Processing
+1. Download the baseline wetlands map of colombia at the google drive link:
 
-## (1) Data Download
+https://drive.google.com/file/d/1GHmrHCjlvCJecxAGdkp8MG02i6aptyft/view?usp=sharing
 
-This notebook allows the user to specify an area of interest and a set of features (Sentinel-2 and/or ALOS PALSAR). It then downloads the corresponding data from Google Earth Engine and puts it in the user's Google Drive.
+Set the BASELINE_WETLAND_PATH to the path where you have stored this file locally
 
-## (2) Cache Training Data
+2. Choose a rectangular region within Colombia you wish to analyze. Note the (minx, miny, maxx, maxy). Fill those in under "SET YOUR AREA OF INTEREST HERE".
 
-This notebook downloads the data now in Google Drive and extracts information about the various bands at wetland sites and non-wetland sites. It stores all training data locally in a pickle (.p) file
+3. Fill in all desired parameters under "SET YOUR PARAMETERS HERE".
 
-## (3) Machine Learning
-
-This notebook uses the locally cached pickle file to predict a specific wetland sub-type for the area of interest. Results are stored in TIFF raster files
-
-## (4) Post Processing
-
-This notebook takes the predicted wetlands and extracts "novel" wetlands. That is, wetlands that do not appear in the baseline but which are confidently predicted by the machine learning method. It produces an updated baseline map with these novel wetlands.
+4. Run the driver code and wait for all Google Earth Engine tasks to complete.
