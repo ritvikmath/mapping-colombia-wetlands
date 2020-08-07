@@ -34,13 +34,13 @@ Set the ***BASELINE_WETLAND_PATH*** to the path where you have stored this file 
 
 ## (3) WetlandPrediction.ipynb
 
-1. Run the drive code and wait for it to complete.
+1. Run the driver code and wait for it to complete.
 
 **Expected Output**: rasters in each sub-region directory starting with "predicted..." which contain the wetland sub-type predictions within that sub-region
 
 ## (4) PostProcessing.ipynb
 
-1. Run the drive code and wait for it to complete.
+1. Run the driver code and wait for it to complete.
 
 **Expected Output**: rasters in each sub-region directory starting with "new_baseline..." which contain the updated baseline map for that sub-region.
 
