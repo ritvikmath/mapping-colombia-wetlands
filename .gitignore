@@ -1,5 +1,11 @@
 *.p
 *.pickle
 *.json
-test
-rescaled*
+*.tiff
+*.tif
+*.txt
+*.pyc
+*.html
+.ipynb*
+regions/*
+__pycache__/*

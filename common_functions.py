@@ -1,23 +1,26 @@
 from osgeo import gdal, osr
 import numpy as np
 from scipy.signal import convolve
+from skimage.restoration import denoise_tv_bregman
 import os
 
 ### CONSTANTS ###
 
 NO_DATA_VALUE = 65535
 
-feature_to_code = {'None': 0, 
-                   'Open Water': 10, 
-                   'Mangrove': 20, 
-                   'Swamp / Bog': 30, 
-                   'Fen': 40, 
-                   'Riverine': 50, 
-                   'Floodswamp': 60, 
-                   'Floodplain': 70, 
-                   'Marsh': 80, 
-                   'Wetland in dry areas': 90, 
-                   'Wet meadow': 100}
+feature_to_code = {'none': 0, 
+                   'openwater': 10, 
+                   'mangrove': 20, 
+                   'swampbog': 30, 
+                   'fen': 40, 
+                   'riverine': 50, 
+                   'floodswamp': 60, 
+                   'floodplain': 70, 
+                   'marsh': 80, 
+                   'wetlandindryareas': 90, 
+                   'wetmeadow': 100}
+
+BANDS_TO_DESPECKLE = ['HH', 'HV']
 
 ### FUNCTIONS ###
 
@@ -79,7 +82,36 @@ def split(arr, nrows, ncols):
         band_splits.append(curr_band_split)
     return np.stack(band_splits, axis=-1)
 
-def preprocess_data_set_pair(ds_features, ds_labels, wetland_type):
+def img_to_db(img):
+    return 10 * np.log10(img)
+
+def db_to_img(img):
+    return 10**(img / 10)
+
+def tv_denoise(arr, idxs_to_despeckle, weight):
+    copy_arr = arr.copy()
+    for idx in idxs_to_despeckle:
+        #get the layer
+        layer = copy_arr[idx]
+        
+        #mask is where layer is nan or NODATA; set those to 0
+        mask = (layer == NO_DATA_VALUE)
+        
+        #denoise
+        img_db = img_to_db(layer)
+        img_db_tv = denoise_tv_bregman(img_db, weight)
+        img_tv = db_to_img(img_db_tv)
+        
+        #apply NODATA mask
+        img_tv[mask] = NO_DATA_VALUE
+        img_tv[np.isnan(img_tv)] = NO_DATA_VALUE
+        
+        #set denoised into copy of array
+        copy_arr[idx] = img_tv
+        
+    return copy_arr
+
+def preprocess_data_set_pair(ds_features, ds_labels, wetland_type, despeckle=False):
     """
     This function accepts a dataset of features (such as Sentinel-2/ALOS etc) and a dataset of labels (the baseline wetland).
     It also accepts a specific type of wetland (like Marsh, Mangrove, etc.).
@@ -97,6 +129,12 @@ def preprocess_data_set_pair(ds_features, ds_labels, wetland_type):
     
     ds_features = gdal.Open('rescaled_fine.tiff', gdal.GA_ReadOnly)
     arr_features = ds_features.ReadAsArray()
+    arr_features[np.isnan(arr_features)] = NO_DATA_VALUE
+    if despeckle:
+        idx_to_despeckle = [idx for idx in range(ds_features.RasterCount) if ds_features.GetRasterBand(idx+1).GetDescription() in BANDS_TO_DESPECKLE]
+        print('--Despeckling ALOS...')
+        arr_features = tv_denoise(arr_features, idx_to_despeckle, 1)
+    
     arr_features = np.stack(arr_features, axis=-1)
     gt = ds_features.GetGeoTransform()
     ds_features = None
@@ -218,7 +256,6 @@ def standardize_data(arr, means, devs, num_sd_trim):
     devs: the column deviations to use in normalization
     num_sd_trim: the number of standard deviations outside of which to remove values in arr
     """
-    
     arr_norm = (arr - means) / devs
     arr_norm[arr_norm > num_sd_trim] = num_sd_trim
     arr_norm[arr_norm < -num_sd_trim] = -num_sd_trim
