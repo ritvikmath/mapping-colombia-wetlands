@@ -24,7 +24,7 @@ Set the ***BASELINE_WETLAND_PATH*** to the path where you have stored this file 
 
 7. Run the driver code and wait for all Google Earth Engine tasks to complete.
 
-**Expected Output**: all training data will be stored locally.
+**Expected Output**: all training data will be stored locally
 
 ## (2) CacheTrainingData.ipynb
 
