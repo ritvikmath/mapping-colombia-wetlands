@@ -38,7 +38,9 @@ Set the ***BASELINE_WETLAND_PATH*** to the path where you have stored this file 
 
 ## (4) PostProcessing.ipynb
 
-1. Run the driver code and wait for it to complete.
+1. Set the ***PERCENTILE_THRESHOLD***. This number, between 0 and 1, contols how sensitive the classifier will be in identifying new wetlands and removing existing wetlands from the baseline. A higher number will result in a more conservative approach (less change from baseline but higher confidence in those changes) while a lower number results in a more liberal approach (more change from the baseline but lower confidence in those changes).
+
+2. Run the driver code and wait for it to complete.
 
 **Expected Output**: rasters in each sub-region directory starting with "new_baseline..." which contain the updated baseline map for that sub-region; a interactive map called map.html will be generated to view the predicted wetlands in context
 
