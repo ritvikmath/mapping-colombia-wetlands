@@ -5,7 +5,6 @@
 *.tif
 *.txt
 *.pyc
-*.html
 .ipynb*
 regions/*
 __pycache__/*
