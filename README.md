@@ -8,7 +8,7 @@
 
 1. Modify (add or remove polygons) the file at **prediction_polygons/prediction_polygons.shp** to contain polygons in which to predict wetlands. 
 
-2. Set the following Jupyter Notebook variables:
+2. Set the following variables in the **User Input Area** of the Jupyter notebook:
 
 ***SELECTED_BANDS***: the bands that will be used in the prediction
 
