@@ -8,7 +8,7 @@
 
 2. In the command line, navigate to the repository and run *"pip install -r requirements.txt"*. This will download the needed python modules to run this code. The only other module you will need is *osgeo*.
 
-3. Create a folder on your Google Drive called **GoogleEarthEngine**. Your data will be stored in this folder temporarily before being downloaded locally in batches. Set the ***GOOGLE_EARTH_ENGINE_GDRIVE_FOLDER_ID***. You can get this by visiting your Google Drive, right clicking the folder, clicking "Get Shareable Link" and copying the unique id following "folders" in the link. *Make sure that the folder containing the data on Google Drive is public.*
+3. Create a folder on your Google Drive called **GoogleEarthEngine**. Your data will be stored in this folder temporarily before being downloaded locally in batches. Set the ***GOOGLE_EARTH_ENGINE_GDRIVE_FOLDER_ID***. You can get this by visiting your Google Drive, right clicking the folder, clicking "Get Link" and copying the unique id following "folders" in the link. *Make sure that the folder containing the data on Google Drive is public.*
 
 4. Run the notebook *"Python Google Drive Setup.ipynb"*. This allows your python code to communicate with your Google Drive, where the Google Earth Engine data gets temporarily stored before being downloaded locally.
 
