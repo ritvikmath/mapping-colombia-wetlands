@@ -12,7 +12,7 @@
 
 4. Run the notebook *"Python Google Drive Setup.ipynb"*. This allows your python code to communicate with your Google Drive, where the Google Earth Engine data gets temporarily stored before being downloaded locally.
 
-5. Modify (add or remove polygons) the file at **roi_polygons/roi_polygons.shp** to contain polygons in which to predict wetlands. If you wish to run this notebook in demo mode (only predicts the CGSM and Sanquianga regions) please change the ***ROI_POLYGONS_FILE** to "roi_polygons/roi_polygons_limited.shp". 
+5. Modify (add or remove polygons) the file at **roi_polygons/roi_polygons.shp** to contain polygons in which to predict wetlands. If you wish to run this notebook in demo mode (only predicts the CGSM and Sanquianga regions) please change the ***ROI_POLYGONS_FILE*** variable to "./roi_polygons/roi_polygons_limited.shp". 
 
 6. Set the following variables in the **User Input Area** of the Jupyter notebook *"Predicting Colombia Wetlands.ipynb"*:
 
