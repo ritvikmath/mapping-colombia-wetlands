@@ -3,8 +3,9 @@
 *.json
 *.tiff
 *.tif
-*.txt
 *.pyc
 .ipynb*
-regions/*
+roi_data/*
+roi_suggested/*
+roi_predicted/*
 __pycache__/*
