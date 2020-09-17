@@ -10,7 +10,7 @@
 
 3. Create a folder on your Google Drive called **GoogleEarthEngine**. Your data will be stored in this folder temporarily before being downloaded locally in batches. Set the ***GOOGLE_EARTH_ENGINE_GDRIVE_FOLDER_ID*** variable in the Jupyter notebook *"Predicting Colombia Wetlands.ipynb"*. You can get this by visiting your Google Drive, right clicking the folder, clicking "Get Link" and copying the unique id following "folders" in the link. *Make sure that the folder containing the data on Google Drive is public.*
 
-4. Run the notebook *"Python Google Drive Setup.ipynb"*. This allows your python code to communicate with your Google Drive, where the Google Earth Engine data gets temporarily stored before being downloaded locally. You will know this step is successful if a tile called "token.pickle" is created in your working directory. This file contains the needed information for the Python code to interact with your Google Drive.
+4. Run the notebook *"Python Google Drive Setup.ipynb"*. This allows your python code to communicate with your Google Drive, where the Google Earth Engine data gets temporarily stored before being downloaded locally. You will know this step is successful if a file called "token.pickle" is created in your working directory. This file contains the needed information for the Python code to interact with your Google Drive.
 
 5. Modify (add or remove polygons) the file at **roi_polygons/roi_polygons.shp** to contain polygons in which to predict wetlands. If you wish to run this notebook in demo mode (only predicts the CGSM and Sanquianga regions) please change the ***ROI_POLYGONS_FILE*** variable to "./roi_polygons/roi_polygons_limited.shp" in the Jupyter notebook *"Predicting Colombia Wetlands.ipynb"*. 
 
