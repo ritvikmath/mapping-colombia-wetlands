@@ -6,7 +6,7 @@
 
 ## Link to rasters of predicted Mangroves in Colombia: https://drive.google.com/drive/folders/1C-5yrKwxzQecGLOMAJnMKWp00uD1z9K4?usp=sharing
 
-Each raster has two bands: class_id and confidence. class_id=1 designates predicted mangroves across all rasters. The confidence band is between 0 and 1 and it designates the confidence of a pixel belonging to the predicted class_id.
+Each predicted raster in the above Google Drive folder has two bands: class_id and confidence. class_id=1 designates predicted mangroves across all rasters. The confidence band is between 0 and 1 and it designates the confidence of a pixel belonging to the predicted class_id.
 
 # Steps to Use
 
