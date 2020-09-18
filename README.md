@@ -8,6 +8,10 @@
 
 Each predicted raster in the above Google Drive folder has two bands: class_id and confidence. class_id=1 designates predicted mangroves across all rasters. The confidence band is between 0 and 1 and it designates the confidence of a pixel belonging to the predicted class_id.
 
+## Link to pre-downloaded data: https://drive.google.com/drive/folders/1GI9qM3yHtQxSf6828VCTQoFQ_GfcMdUZ?usp=sharing
+
+At the above Google Drive folder you will find pre-downloaded data for the CGSM and Sanquianga regions. If using these, please set the ***ONLINE*** variable to False in Step 6 below.
+
 # Steps to Use
 
 1. Clone the repository.
