@@ -2,7 +2,7 @@
 
 **Purpose**: Build models to predict wetland areas in Colombia.
 
-Using this code (How-To video): https://www.youtube.com/watch?v=Xt-rrXzqVUk
+## Using this code (How-To video): https://www.youtube.com/watch?v=Xt-rrXzqVUk
 
 # Steps to Use
 
