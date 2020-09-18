@@ -12,6 +12,8 @@
 
 3. Create a folder on your Google Drive called **GoogleEarthEngine**. Your data will be stored in this folder temporarily before being downloaded locally in batches. Set the ***GOOGLE_EARTH_ENGINE_GDRIVE_FOLDER_ID*** variable in the Jupyter notebook *"Predicting Colombia Wetlands.ipynb"*. You can get this by visiting your Google Drive, right clicking the folder, clicking "Get Link" and copying the unique id following "folders" in the link. *Make sure that the folder containing the data on Google Drive is public.*
 
+![alt text](https://github.com/ritvikmath/ritvikmath.github.io/blob/master/images/2020-09-17_18-29-37.png)
+
 4. Run the notebook *"Python Google Drive Setup.ipynb"*. This allows your python code to communicate with your Google Drive, where the Google Earth Engine data gets temporarily stored before being downloaded locally. You will know this step is successful if a file called "token.pickle" is created in your working directory. This file contains the needed information for the Python code to interact with your Google Drive.
 
 5. Modify (add or remove polygons) the file at **roi_polygons/roi_polygons.shp** to contain polygons in which to predict wetlands. If you wish to run this notebook in demo mode (only predicts the CGSM and Sanquianga regions) please change the ***ROI_POLYGONS_FILE*** variable to "./roi_polygons/roi_polygons_limited.shp" in the Jupyter notebook *"Predicting Colombia Wetlands.ipynb"*. 
@@ -34,7 +36,11 @@
 
 9. Using a GIS software like QGIS, use the suggested classes rasters as guidelines for this step. Within each polygon in **roi_polygons.shp**, create several small training polygons, each having a *class_id* and *confidence* between 0 and 1. This step allows the user to label small regions within each roi polygon, helping build a model to predict regions with similar signatures within the training region. Refer to the file at **training_polygons/training_polygons.shp** as a reference and modify this file by adding or removing training polygons. Try to include as many training polygons from each class as possible for a more robust prediction.
 
+![alt text](https://github.com/ritvikmath/ritvikmath.github.io/blob/master/images/2020-09-17_18-32-04.png)
+
 10. Run the driver code under the heading **Driver Code : Extract Training Data**. This will extract the data from your training polygons.
 
 11. Run the driver code under the heading **Driver Code : Classify ROI Areas**. This will build the model and use it to predict the class_id of each pixel within your roi polygons. The results are stored in the **roi_predicted** folder. Each of these prediction rasters has two layers. The first is the predicted class id and the second is the confidence between 0 and 1 at each pixel.
+
+![alt text](https://github.com/ritvikmath/ritvikmath.github.io/blob/master/images/2020-09-17_18-32-48.png)
 
