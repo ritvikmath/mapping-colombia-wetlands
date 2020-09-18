@@ -4,6 +4,8 @@
 
 ## Using this code (How-To video): https://www.youtube.com/watch?v=Xt-rrXzqVUk
 
+## Link to rasters of predicted Mangroves in Colombia: https://drive.google.com/drive/folders/1C-5yrKwxzQecGLOMAJnMKWp00uD1z9K4?usp=sharing
+
 # Steps to Use
 
 1. Clone the repository.
