@@ -10,7 +10,7 @@ Each predicted raster in the above Google Drive folder has two bands: class_id a
 
 ## Link to pre-downloaded data: https://drive.google.com/drive/folders/1GI9qM3yHtQxSf6828VCTQoFQ_GfcMdUZ?usp=sharing
 
-At the above Google Drive folder you will find pre-downloaded data for the CGSM and Sanquianga regions. If using these, please set the ***ONLINE*** variable to False in Step 6 below.
+At the above Google Drive folder you will find pre-downloaded data for the CGSM and Sanquianga regions. If using these, please set the ***ONLINE*** variable to False in Step 6 below and move these raster files into the "roi_data" directory.
 
 # Steps to Use
 
