@@ -8,4 +8,7 @@
 roi_data/*
 roi_suggested/*
 roi_predicted/*
+roi_gmw/*
 __pycache__/*
+temp/*
+temp*
