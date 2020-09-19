@@ -48,7 +48,7 @@ At the above Google Drive folder you will find pre-downloaded data for the CGSM 
 
 10. Run the driver code under the heading **Driver Code : Extract Training Data**. This will extract the data from your training polygons.
 
-11. Run the driver code under the heading **Driver Code : Classify ROI Areas**. This will build the model and use it to predict the class_id of each pixel within your roi polygons. The results are stored in the **roi_predicted** folder. Each of these prediction rasters has two layers. The first is the predicted class id and the second is the confidence between 0 and 1 at each pixel.
+11. Run the driver code under the heading **Driver Code : Classify ROI Areas**. This will build the model and use it to predict the class_id of each pixel within your roi polygons. The results are stored in the **roi_predicted** folder. Each of these prediction rasters has two layers. The first is the predicted class id and the second is the confidence between 0 and 1 at each pixel. Additional rasters are stored in the **roi_gmw** folder; these rasters compare the predictd results to the Global Mangrove Watch (GMW) and each of these rasters contains values in {0,1,2} where 0 means the prediction marked this as mangrove but the GMW did not, 1 means that the GMW marked this as mangrove but the prediction did not, and 2 means that both the GMW and the prediction marked this as mangroves. These rasters are intended to visualize where the GMW and predictions agree and disagree.
 
 ![alt text](https://github.com/ritvikmath/ritvikmath.github.io/blob/master/images/2020-09-17_18-32-48.png)
 
