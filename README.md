@@ -4,9 +4,9 @@
 
 **Acknowledgments**:
 
-Principal Investigator: Dr. Marc Simard (https://swot.jpl.nasa.gov/people/52/marc-simard)
+Principal Investigator: **Dr. Marc Simard** (https://swot.jpl.nasa.gov/people/52/marc-simard)
 
-Thank you to the SilvaCarbon program for funding this tool. (https://www.silvacarbon.org/)
+Thank you to the **SilvaCarbon** program for funding this tool. (https://www.silvacarbon.org/)
 
 ## Using this code (How-To video): https://www.youtube.com/watch?v=Xt-rrXzqVUk
 
