@@ -2,6 +2,12 @@
 
 **Purpose**: Build models to predict wetland areas in Colombia.
 
+**Acknowledgments**:
+
+Principal Investigator: Dr. Marc Simard (https://swot.jpl.nasa.gov/people/52/marc-simard)
+
+Thank you to the SilvaCarbon program for funding this tool. (https://www.silvacarbon.org/)
+
 ## Using this code (How-To video): https://www.youtube.com/watch?v=Xt-rrXzqVUk
 
 ## Link to rasters of predicted Mangroves in Colombia: https://drive.google.com/drive/folders/1C-5yrKwxzQecGLOMAJnMKWp00uD1z9K4?usp=sharing
