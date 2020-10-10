@@ -2,7 +2,7 @@
 
 **Purpose**: Build models to predict wetland areas in Colombia.
 
-**Acknowledgments**:
+# Acknowledgments
 
 Principal Investigator: **Dr. Marc Simard** (https://swot.jpl.nasa.gov/people/52/marc-simard)
 
