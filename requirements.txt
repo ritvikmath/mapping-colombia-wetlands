@@ -20,7 +20,7 @@ httplib2==0.18.1
 httplib2shim==0.0.3
 idna==2.10
 imageio==2.9.0
-joblib==0.16.0
+joblib==1.2.0
 kiwisolver==1.2.0
 matplotlib==3.3.2
 networkx==2.5
